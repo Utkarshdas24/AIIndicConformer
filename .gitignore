@@ -1,0 +1,65 @@
+﻿# Python Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+*.venv/
+
+# Environment & Secret Configuration Files
+.env
+.env.local
+.env.*
+*.env
+!.env.example
+
+# Model Weights & Offline Checkpoints (>2.4 GB - must not be committed)
+models/
+*.onnx
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+
+# Hugging Face & Model Cache
+hf_cache/
+.cache/
+
+# Datasets
+dataset/
+
+# Audio Files & Recordings (Keep recordings directory structure via .gitkeep)
+recordings/*
+!recordings/.gitkeep
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+
+# Output Results, Transcripts & Reports (Keep results directory structure via .gitkeep)
+results/*
+!results/.gitkeep
+*.csv
+
+# Python Bytecode & Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# Temporary Scripts, Logs & Scratch Files
+scratch/
+scratch_*.py
+*.tmp
+*.log
+
+# IDE, Editor & OS Generated Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

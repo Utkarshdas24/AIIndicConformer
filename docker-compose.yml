@@ -1,0 +1,31 @@
+﻿services:
+  asr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: indic-asr-pipeline:latest
+    container_name: indic_asr_pipeline
+    env_file:
+      - .env
+    volumes:
+      # Mount output results to local host
+      - ./results:/app/results
+      # Mount input recordings folder
+      - ./recordings:/app/recordings
+      # Mount offline model weights folder
+      - ./models:/app/models
+      # Preserve HuggingFace model cache across container rebuilds
+      - ./hf_cache:/app/hf_cache
+    environment:
+      - PYTHONUNBUFFERED=1
+      - HF_HOME=/app/hf_cache
+      - INDIC_MODEL_DIR=/app/models/indic-conformer-600m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ipc: host
+    restart: "no"

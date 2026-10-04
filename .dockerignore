@@ -1,0 +1,34 @@
+﻿# Virtual environments
+.venv/
+venv/
+env/
+
+# Large model weights (mount via volume instead of baking into image)
+models/
+*.onnx
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Large datasets & audio files
+dataset/
+hf_cache/
+*.wav
+*.mp3
+*.flac
+
+# Git & OS metadata
+.git/
+.gitignore
+.dockerignore
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+
+# Temporary scratch & logs
+scratch/
+scratch_*.py
+*.log
+*.tmp
